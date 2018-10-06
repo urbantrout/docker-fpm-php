@@ -34,6 +34,7 @@ Most of the regular needed modules (apcu, opcache, php-redis, etc.) are built in
 * ssh2
 * ioncube
 * mcrypt (< 7.2)
+* composer
 
 ## Basic Usage
 This Image is intended to be used along with an external webserver container like apache or nginx.

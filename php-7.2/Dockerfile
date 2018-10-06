@@ -98,6 +98,8 @@ RUN     apk update                       && \
         \
         rm -rf /tmp/* /var/cache/apk/*
 
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+
 # set recommended PHP.ini settings
 # https://secure.php.net/manual/en/opcache.installation.php
 # https://secure.php.net/manual/en/apcu.configuration.php
