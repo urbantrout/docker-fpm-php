@@ -107,6 +107,8 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # also, enable ioncube
 COPY    conf.d/* /usr/local/etc/php/conf.d/
 
+WORKDIR /var/www/html
+RUN chown -R www-data:www-data .
 USER www-data
 
 CMD     ["php-fpm"]
