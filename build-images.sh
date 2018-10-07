@@ -14,7 +14,7 @@ exact_version() {
     unset APP
     APP="${1}"
     FILE="${2}"
-    
+
     grep -i "${APP}" "${FILE}" | cut -d '=' -f 2
 
 }
@@ -28,11 +28,7 @@ docker_push() {
     docker push "${IMAGE}" 1>/dev/null
 }
 
-if [[ "${#CHANGED_DIRECTORIES[@]}" -eq 0 ]] || [[ $( echo "${CHANGED_DIRECTORIES[@]}" | grep -e "${BUILD_ALL_REGEX}" ) ]]; then
-    TO_BUILD=($(find "${TRAVIS_BUILD_DIR}" -maxdepth 1 -mindepth 1 -type d -name "php*" | sed -e 's#.*\/\(\)#\1#' | sort))
-else
-    TO_BUILD=(${CHANGED_DIRECTORIES})
-fi
+TO_BUILD=($(find "${TRAVIS_BUILD_DIR}" -maxdepth 1 -mindepth 1 -type d -name "php*" | sed -e 's#.*\/\(\)#\1#' | sort))
 
 echo "# # # # # # # # # # # # # # # # # # # # # # # # #"
 echo "# We're building the following realeases now:"
