@@ -28,7 +28,11 @@ docker_push() {
     docker push "${IMAGE}" 1>/dev/null
 }
 
-TO_BUILD=($(find "${TRAVIS_BUILD_DIR}" -maxdepth 1 -mindepth 1 -type d -name "php*" | sed -e 's#.*\/\(\)#\1#' | sort))
+if [[ "${#CHANGED_DIRECTORIES[@]}" -eq 0 ]] || [[ $( echo "${CHANGED_DIRECTORIES[@]}" | grep -e "${BUILD_ALL_REGEX}" ) ]]; then
+    TO_BUILD=($(find "${TRAVIS_BUILD_DIR}" -maxdepth 1 -mindepth 1 -type d -name "php*" | sed -e 's#.*\/\(\)#\1#' | sort))
+else
+    TO_BUILD=(${CHANGED_DIRECTORIES})
+fi
 
 echo "# # # # # # # # # # # # # # # # # # # # # # # # #"
 echo "# We're building the following realeases now:"
