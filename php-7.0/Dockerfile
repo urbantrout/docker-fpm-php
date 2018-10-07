@@ -101,6 +101,7 @@ RUN     apk update                       && \
         \
         rm -rf /tmp/* /var/cache/apk/*
 
+# Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # set recommended PHP.ini settings
