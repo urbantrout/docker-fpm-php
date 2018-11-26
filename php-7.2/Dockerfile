@@ -40,6 +40,7 @@ RUN     apk update                       && \
             gmp                             \
             gmp-dev                         \
             libmemcached-dev                \
+            imagemagick                     \
             imagemagick-dev                 \
             libssh2                         \
             libssh2-dev                     \
@@ -90,7 +91,7 @@ RUN     apk update                       && \
         docker-php-ext-enable                                           \
             apcu imagick ssh2                                       &&  \
         \
-        echo "expose_php=0" > /usr/local/etc/php/php.ini            &&  \
+        echo "expose_php=0" >> /usr/local/etc/php/php.ini           &&  \
         \
         apk del .build-dependencies                                 &&  \
         \
