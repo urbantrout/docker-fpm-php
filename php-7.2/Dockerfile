@@ -1,4 +1,4 @@
-ARG     PHP_VERSION="${PHP_VERSION:-7.2.8}"
+ARG     PHP_VERSION="${PHP_VERSION:-7.2.14}"
 FROM	php:${PHP_VERSION}-fpm-alpine
 
 LABEL	maintainer="https://github.com/hermsi1337"
