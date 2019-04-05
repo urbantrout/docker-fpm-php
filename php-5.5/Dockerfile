@@ -67,6 +67,7 @@ RUN apk update && \
     xsl \
     zip \
     soap \
+    mysql \
     mysqli \
     pdo \
     pdo_mysql \
