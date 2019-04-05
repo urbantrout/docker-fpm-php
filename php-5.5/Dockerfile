@@ -66,6 +66,7 @@ RUN apk update && \
     bcmath \
     xsl \
     zip \
+    openssl \
     soap \
     mysql \
     mysqli \
