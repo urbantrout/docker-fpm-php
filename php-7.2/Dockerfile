@@ -39,6 +39,7 @@ RUN apk update && \
     freetype-dev \
     libjpeg-turbo-dev \
     libpng-dev \
+    git \
     gmp \
     gmp-dev \
     libmemcached-dev \
