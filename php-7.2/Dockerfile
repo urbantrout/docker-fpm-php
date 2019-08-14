@@ -117,6 +117,9 @@ RUN apk update && \
 # Install composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
+# Fix OpenSSL
+RUN sed -i 's/#default_bits/default_bits/' /etc/ssl/openssl.cnf
+
 # set recommended PHP.ini settings
 # https://secure.php.net/manual/en/opcache.installation.php
 # https://secure.php.net/manual/en/apcu.configuration.php
